@@ -2,6 +2,16 @@ import numpy as np
 import scipy.special as sp
 import matplotlib.pyplot as plt
 import copy
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import collections
+
+Transition = collections.namedtuple('Experience',
+                                    field_names=['state', 'action',
+                                                 'next_state', 'reward',
+                                                 'is_game_on'])
+
 
 class Agent:
     def __init__(self, maze, memory_buffer, use_softmax = True):
